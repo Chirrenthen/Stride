@@ -1,0 +1,181 @@
+<!-- Code written by Chirenthen-->
+<!-- Visit my portfolio - https://chirrenthen.netlify.app -->
+<!-- Github - https://github.com/Chirenthen -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stride | Chirrenthen</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="shoe.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-logo">Stride</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#collection" class="nav-link">Collection</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-icons">
+                <span class="icon" id="cart-icon">🛒 <span class="cart-count">0</span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Video Background -->
+    <section id="home" class="hero">
+        <video class="hero-bg-video" autoplay muted loop playsinline>
+            <source src="video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Step Into Elegance</h1>
+            <p class="hero-subtitle">Discover our exclusive collection of premium footwear crafted for the modern individual</p>
+            <a href="#collection" class="btn btn-primary">Explore Collection</a>
+        </div>
+        <div class="hero-visual">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&h=500&fit=crop" alt="Premium Athletic Shoe" class="hero-shoe-image">
+        </div>
+    </section>
+
+    <!-- Collection Section with Video Background -->
+    <section id="collection" class="collection">
+        <video class="section-bg-video" autoplay loop playsinline>
+            <source src="video.mp4" type="video/mp4">
+        </video>
+        <div class="section-overlay"></div>
+        <div class="container">
+            <h2 class="section-title">Featured Collection</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="sneakers">Sneakers</button>
+                <button class="filter-btn" data-filter="formal">Formal</button>
+                <button class="filter-btn" data-filter="casual">Casual</button>
+            </div>
+            
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be dynamically loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title">Crafted for Excellence</h2>
+                <p class="about-text">At STRIDE, we believe that every step matters. Our shoes are meticulously designed using premium materials and innovative techniques to provide unparalleled comfort and style. Each pair tells a story of craftsmanship, passion, and dedication to quality.</p>
+                <div class="features">
+                    <div class="feature-card">
+                        <div class="feature-icon">✨</div>
+                        <h3>Premium Quality</h3>
+                        <p>Handpicked materials from around the world</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h3>Modern Design</h3>
+                        <p>Timeless aesthetics meets contemporary style</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💚</div>
+                        <h3>Sustainable</h3>
+                        <p>Eco-friendly production processes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>STRIDE</h3>
+                    <p>Premium footwear for the discerning individual</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#collection">Collection</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#">Instagram</a>
+                        <a href="#">Facebook</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 STRIDE. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Shopping Cart</h2>
+            <div id="cart-items"></div>
+            <div class="cart-total">
+                <h3>Total: $<span id="cart-total">0</span></h3>
+                <button class="btn btn-primary">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Ensure videos play on page load (handle browser autoplay policies)
+        document.addEventListener('DOMContentLoaded', () => {
+            const videos = document.querySelectorAll('video');
+            videos.forEach(video => {
+                video.muted = true;  // Ensure muted for autoplay
+                video.play().catch(error => {
+                    console.log('Video autoplay attempted');
+                });
+            });
+        });
+
+        // Fallback: Try to play videos on first user interaction if autoplay fails
+        document.addEventListener('touchstart', () => {
+            const videos = document.querySelectorAll('video');
+            videos.forEach(video => {
+                if (video.paused) video.play();
+            });
+        }, { once: true });
+    </script>
+</body>
+</html>
